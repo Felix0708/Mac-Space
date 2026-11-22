@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>여백</string>
+	<key>CFBundleExecutable</key>
+	<string>Space</string>
+	<key>CFBundleIconFile</key>
+	<string>Yeobaek</string>
+	<key>CFBundleIdentifier</key>
+	<string>io.github.Felix0708.Yeobaek</string>
+	<key>CFBundleName</key>
+	<string>여백</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.2.0</string>
+	<key>CFBundleVersion</key>
+	<string>4</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>27.0</string>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>데스크탑의 파일별 용량을 표시합니다.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>문서 폴더의 파일별 용량을 표시합니다.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>다운로드 폴더의 파일별 용량을 표시합니다.</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+</dict>
+</plist>
