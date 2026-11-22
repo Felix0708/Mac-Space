@@ -1,5 +1,5 @@
 from pathlib import Path
-import hashlib, os, plistlib, shutil, subprocess, tempfile, xml.etree.ElementTree as E
+import hashlib, os, plistlib, shutil, subprocess, tempfile, time, xml.etree.ElementTree as E
 project=Path(__file__).resolve().parents[1]
 out=project/'dist'
 expected=plistlib.loads((project/'resources/Info.plist').read_bytes())
@@ -55,4 +55,11 @@ with tempfile.TemporaryDirectory(prefix='verify-',dir=project/'.build') as direc
    assert r.returncode==1 and 'checksum mismatch' in r.stderr
   print('PASS: package destination, app/icon integrity, OS/CPU restrictions, no relocation, no install scripts, mounted DMG contents, non-root refusal, missing/tampered package rejection. No installation performed.')
  finally:
-  subprocess.run(["/usr/bin/hdiutil","detach",str(mounted)],check=True)
+  # macOS can briefly hold a newly inspected volume open.
+  for attempt in range(3):
+   result=subprocess.run(["/usr/bin/hdiutil","detach",str(mounted)])
+   if result.returncode==0:
+    break
+   if attempt==2:
+    result.check_returncode()
+   time.sleep(1)
